@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>DCC104 - CANVAS 02</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="AudioLoader.js" charset="utf-8"></script>
     <script src="CriarFase.js" charset="utf-8"></script>
     <script src="ImageLoader.js" charset="utf-8"></script>
@@ -10,10 +11,16 @@
     <script src="Level.js" charset="utf-8"></script>
     <script src="Player.js" charset="utf-8"></script>
   </head>
+  
   <body>
 
-  <h1>DCC104 - CANVAS 02</h1>
-  <canvas></canvas>
+  <div id="container">
+  
+  <p>DCC104 - CANVAS 02</p>
+
+  <canvas>
+  </canvas>
+  </div>
   <script>
 
     var eCanvas = document.getElementsByTagName("canvas")[0];
@@ -61,7 +68,7 @@
       dt = (atual - anterior)/1000;
       ctx.clearRect(0,0,eCanvas.width, eCanvas.height);
       ctx.strokeRect(0,0,eCanvas.width, eCanvas.height);
-      //ctx.drawImage("galaxy", 0, 0);
+      ctx.drawImage(il.getImg("galaxy"), 0, 0, 480, 480, 0, 0, 480, 480);
       ctx.fillStyle = "darkgreen";
       ctx.font='20px Arial';
       //ctx.fillText("dt: "+dt+" fps:"+Math.floor(1/dt), 10, 10);
@@ -149,12 +156,12 @@
               level.fire(player, al, "shot", 0.5);
             break;
           case 37:
-            player.vx = -100;
+            player.vx = -200;
             break;
           case 38:
             break;
           case 39:
-            player.vx = +100;
+            player.vx = +200;
             break;
           case 40:
             break;
@@ -180,6 +187,7 @@
       });
 
   </script>
+
   </body>
 
 </html>
